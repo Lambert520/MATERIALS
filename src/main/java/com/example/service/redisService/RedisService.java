@@ -50,13 +50,13 @@ public class RedisService {
     }
 
     public void deleteKey(String... keys){
-        Set<String> kSet = Stream.of(keys).map(k -> k).collect(Collectors.toSet());
-        redisTemplate.delete(kSet);
+        //Set<String> kSet = Stream.of(keys).map(k -> k).collect(Collectors.toSet());
+        //redisTemplate.delete(kSet);
     }
 
     public void deletKey(Collection<String> keys){
-        Set<String> kSet = keys.stream().map(k -> k).collect(Collectors.toSet());
-        redisTemplate.delete(keys);
+        //Set<String> kSet = keys.stream().map(k -> k).collect(Collectors.toSet());
+        //redisTemplate.delete(keys);
     }
 
     /**

@@ -29,7 +29,7 @@ public class DeptController {
     private UserServiceImpl userService;
 
     @CrossOrigin
-    @GetMapping("/dept")
+    @GetMapping("/housemasterAllot")
     @ResponseBody
     public Result findAllDept(){
         List<Dept> deptList = deptService.findAllDept();
