@@ -20,9 +20,11 @@ public class LoginController {
     @PostMapping("/login")
     @ResponseBody
     public Result login(@RequestBody User requestUser,HttpSession session){
-        String jobNum = requestUser.getJobNum();
-        jobNum = HtmlUtils.htmlEscape(jobNum);//将数据转义
-        User user = userService.selectUserByJobNum(jobNum);
+    	String uno = requestUser.getU_no();
+//        String jobNum = requestUser.getJobNum();
+    	uno = HtmlUtils.htmlEscape(uno);//将数据转义
+//        User user = userService.selectUserByJobNum(jobNum);
+        User user = userService.selectUserByUNo(uno);
         if(null == user){
             String message = "工号&密码错误！";
             System.out.println(message);

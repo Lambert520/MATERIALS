@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface UserService {
 
-    public User selectUserByJobNum(String jobNum);
+    public User selectUserByUNo(String u_no);
 
     public List<User> findAllUser();
 
@@ -14,12 +14,7 @@ public interface UserService {
 
     public boolean updateUser(User user);
 
-    public boolean deleteUser(String jobNum);
+    public boolean deleteUser(String u_no);
 
-    public void updateJob(User user);
-
-    public User selectUserByDept(String deptNum);
-
-    public User selectUserByName(String userName);
 
 }

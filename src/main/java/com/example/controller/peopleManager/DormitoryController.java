@@ -1,9 +1,9 @@
 package com.example.controller.peopleManager;
 
-import com.example.entity.peopleManager.User;
+import com.example.entity.peopleManager.Dormitory;
 import com.example.result.Result;
 import com.example.result.ResultFactory;
-import com.example.service.serviceImpl.UserServiceImpl;
+import com.example.service.serviceImpl.DormitoryServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,27 +17,26 @@ import java.util.List;
  * @create: 2019-08-17 12:37
  */
 @RestController
-public class UserController {
+public class DormitoryController {
 
     @Autowired
-    private UserServiceImpl userService;
+    private DormitoryServiceImpl dormitoryService;
 
     @CrossOrigin
-    @GetMapping("/user")
+    @GetMapping("/dormitory")
     @ResponseBody
-    public List<User> getAllUser(HttpSession httpSession){
+    public List<Dormitory> getAllD(HttpSession httpSession){
 
-        //System.out.println(httpSession.getAttribute("user").toString());
-        return userService.findAllUser();
+        return dormitoryService.findAllD();
     }
 
     @CrossOrigin
-    @PostMapping("/user")
+    @PostMapping("/dormitory")
     @ResponseBody
-    public Result addUser(@RequestBody User requestUser){
-        boolean flag = userService.addUser(requestUser);
+    public Result addD(@RequestBody Dormitory requestD){
+        boolean flag = dormitoryService.addD(requestD);
         if(flag){
-            return ResultFactory.bulidSuccessResult(requestUser);
+            return ResultFactory.bulidSuccessResult(requestD);
         }else {
             return ResultFactory.bulidFailResult("添加失败");
         }
@@ -45,12 +44,12 @@ public class UserController {
     }
 
     @CrossOrigin
-    @PutMapping("/user")
+    @PutMapping("/dormitory")
     @ResponseBody
-    public Result updateUser(@RequestBody User requestUser){
-        boolean flag = userService.updateUser(requestUser);
+    public Result updateD(@RequestBody Dormitory requestD){
+        boolean flag = dormitoryService.updateD(requestD);
         if(flag){
-            return ResultFactory.bulidSuccessResult(requestUser);
+            return ResultFactory.bulidSuccessResult(requestD);
         }else {
             return ResultFactory.bulidFailResult("添加失败");
         }
@@ -58,11 +57,11 @@ public class UserController {
 
     //get和delete方式不支持@RequestBody！！！
     @CrossOrigin
-    @DeleteMapping("/user")
+    @DeleteMapping("/dormitory")
     @ResponseBody
-    public Result deleteUser(@RequestBody User user){
-        System.out.println(user.getU_no());
-        boolean flag = userService.deleteUser(user.getU_no());
+    public Result deleteD(@RequestBody Dormitory d){
+        System.out.println(d.getD_no());
+        boolean flag = dormitoryService.deleteD(d.getD_no());
 
         if(flag){
             return ResultFactory.bulidSuccessResult("success");

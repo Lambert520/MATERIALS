@@ -1,9 +1,9 @@
 package com.example.controller.peopleManager;
 
-import com.example.entity.peopleManager.User;
+import com.example.entity.peopleManager.Sanitation;
 import com.example.result.Result;
 import com.example.result.ResultFactory;
-import com.example.service.serviceImpl.UserServiceImpl;
+import com.example.service.serviceImpl.SanitationServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,27 +17,26 @@ import java.util.List;
  * @create: 2019-08-17 12:37
  */
 @RestController
-public class UserController {
+public class SanitationController {
 
     @Autowired
-    private UserServiceImpl userService;
+    private SanitationServiceImpl sanitationService;
 
     @CrossOrigin
-    @GetMapping("/user")
+    @GetMapping("/sanitation")
     @ResponseBody
-    public List<User> getAllUser(HttpSession httpSession){
+    public List<Sanitation> getAllSA(HttpSession httpSession){
 
-        //System.out.println(httpSession.getAttribute("user").toString());
-        return userService.findAllUser();
+        return sanitationService.findAllSA();
     }
 
     @CrossOrigin
-    @PostMapping("/user")
+    @PostMapping("/sanitation")
     @ResponseBody
-    public Result addUser(@RequestBody User requestUser){
-        boolean flag = userService.addUser(requestUser);
+    public Result addSA(@RequestBody Sanitation requestS){
+        boolean flag = sanitationService.addSA(requestS);
         if(flag){
-            return ResultFactory.bulidSuccessResult(requestUser);
+            return ResultFactory.bulidSuccessResult(requestS);
         }else {
             return ResultFactory.bulidFailResult("添加失败");
         }
@@ -45,12 +44,12 @@ public class UserController {
     }
 
     @CrossOrigin
-    @PutMapping("/user")
+    @PutMapping("/sanitation")
     @ResponseBody
-    public Result updateUser(@RequestBody User requestUser){
-        boolean flag = userService.updateUser(requestUser);
+    public Result updateSA(@RequestBody Sanitation requestS){
+        boolean flag = sanitationService.updateSA(requestS);
         if(flag){
-            return ResultFactory.bulidSuccessResult(requestUser);
+            return ResultFactory.bulidSuccessResult(requestS);
         }else {
             return ResultFactory.bulidFailResult("添加失败");
         }
@@ -58,11 +57,11 @@ public class UserController {
 
     //get和delete方式不支持@RequestBody！！！
     @CrossOrigin
-    @DeleteMapping("/user")
+    @DeleteMapping("/sanitation")
     @ResponseBody
-    public Result deleteUser(@RequestBody User user){
-        System.out.println(user.getU_no());
-        boolean flag = userService.deleteUser(user.getU_no());
+    public Result deleteSA(@RequestBody Sanitation s){
+        System.out.println(s.getD_no());
+        boolean flag = sanitationService.deleteSA(s.getD_no());
 
         if(flag){
             return ResultFactory.bulidSuccessResult("success");
@@ -72,3 +71,4 @@ public class UserController {
     }
 
 }
+

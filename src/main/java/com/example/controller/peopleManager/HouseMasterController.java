@@ -1,9 +1,9 @@
 package com.example.controller.peopleManager;
 
-import com.example.entity.peopleManager.User;
+import com.example.entity.peopleManager.HouseMaster;
 import com.example.result.Result;
 import com.example.result.ResultFactory;
-import com.example.service.serviceImpl.UserServiceImpl;
+import com.example.service.serviceImpl.HouseMasterServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,27 +17,27 @@ import java.util.List;
  * @create: 2019-08-17 12:37
  */
 @RestController
-public class UserController {
+public class HouseMasterController {
 
     @Autowired
-    private UserServiceImpl userService;
+    private HouseMasterServiceImpl housemasterService;
 
     @CrossOrigin
-    @GetMapping("/user")
+    @GetMapping("/housemasterInfo")
     @ResponseBody
-    public List<User> getAllUser(HttpSession httpSession){
+    public List<HouseMaster> getAllHM(HttpSession httpSession){
 
-        //System.out.println(httpSession.getAttribute("user").toString());
-        return userService.findAllUser();
+//        return userService.findAllUser();
+        return housemasterService.findAllHM();
     }
 
     @CrossOrigin
-    @PostMapping("/user")
+    @PostMapping("/housemasterInfo")
     @ResponseBody
-    public Result addUser(@RequestBody User requestUser){
-        boolean flag = userService.addUser(requestUser);
+    public Result addHM(@RequestBody HouseMaster requestHM){
+        boolean flag = housemasterService.addHM(requestHM);
         if(flag){
-            return ResultFactory.bulidSuccessResult(requestUser);
+            return ResultFactory.bulidSuccessResult(requestHM);
         }else {
             return ResultFactory.bulidFailResult("添加失败");
         }
@@ -45,12 +45,12 @@ public class UserController {
     }
 
     @CrossOrigin
-    @PutMapping("/user")
+    @PutMapping("/housemasterInfo")
     @ResponseBody
-    public Result updateUser(@RequestBody User requestUser){
-        boolean flag = userService.updateUser(requestUser);
+    public Result updateHM(@RequestBody HouseMaster requestHM){
+        boolean flag = housemasterService.updateHM(requestHM);
         if(flag){
-            return ResultFactory.bulidSuccessResult(requestUser);
+            return ResultFactory.bulidSuccessResult(requestHM);
         }else {
             return ResultFactory.bulidFailResult("添加失败");
         }
@@ -58,11 +58,11 @@ public class UserController {
 
     //get和delete方式不支持@RequestBody！！！
     @CrossOrigin
-    @DeleteMapping("/user")
+    @DeleteMapping("/housemasterInfo")
     @ResponseBody
-    public Result deleteUser(@RequestBody User user){
-        System.out.println(user.getU_no());
-        boolean flag = userService.deleteUser(user.getU_no());
+    public Result deleteHM(@RequestBody HouseMaster hm){
+        System.out.println(hm.getH_no());
+        boolean flag = housemasterService.deleteHM(hm.getH_no());
 
         if(flag){
             return ResultFactory.bulidSuccessResult("success");
