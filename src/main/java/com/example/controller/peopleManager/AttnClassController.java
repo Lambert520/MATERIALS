@@ -14,21 +14,21 @@ import java.util.List;
 public class AttnClassController {
 
     @Autowired
-    private AttnClassServiceImpl attnclassnService;
+    private AttnClassServiceImpl attnclassService;
 
     @CrossOrigin
     @GetMapping("/dormmbrcs")
     @ResponseBody
     public List<AttnClass> getAllAC(HttpSession httpSession){
 
-        return attnclassnService.findAllAC();
+        return attnclassService.findAllAC();
     }
 
     @CrossOrigin
     @PostMapping("/dormmbrcs")
     @ResponseBody
     public Result addAC(@RequestBody AttnClass requestAC){
-        boolean flag = attnclassnService.addAC(requestAC);
+        boolean flag = attnclassService.addAC(requestAC);
         if(flag){
             return ResultFactory.bulidSuccessResult(requestAC);
         }else {
@@ -41,7 +41,7 @@ public class AttnClassController {
     @PutMapping("/dormmbrcs")
     @ResponseBody
     public Result updateAC(@RequestBody AttnClass requestAC){
-        boolean flag = attnclassnService.updateAC(requestAC);
+        boolean flag = attnclassService.updateAC(requestAC);
         if(flag){
             return ResultFactory.bulidSuccessResult(requestAC);
         }else {
@@ -55,7 +55,7 @@ public class AttnClassController {
     @ResponseBody
     public Result deleteAC(@RequestBody AttnClass ac){
         System.out.println(ac.getS_no());
-        boolean flag = attnclassnService.deleteAC(ac.getS_no());
+        boolean flag = attnclassService.deleteAC(ac.getS_no());
 
         if(flag){
             return ResultFactory.bulidSuccessResult("success");

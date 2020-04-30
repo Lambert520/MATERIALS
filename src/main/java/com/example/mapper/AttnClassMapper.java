@@ -25,7 +25,7 @@ public interface AttnClassMapper {
     void addAC(AttnClass  ac);
 
     //修改一个用户
-    @Update("UPDATE attn_class SET s_no=#{s_no}, d_no=#{d_no}, s_name=#{s_name}, unattn_c_rsn=#{unattn_c_rsn}, unattn_c_t=#{unattn_c_t} WHERE s_no = #{s_no} ")
+    @Update("UPDATE attn_class SET d_no=#{d_no},s_no=#{s_no},s_name=#{s_name},unattn_c_rsn=#{unattn_c_rsn},unattn_c_t=#{unattn_c_t} WHERE s_no=#{s_no} ")
     void updateAC(AttnClass  ac);
 
     //删除一个用户
