@@ -21,11 +21,11 @@ public interface DormitoryMbrMapper {
     List<DormitoryMbr> findAllDM();
 
     //新增宿舍
-    @Insert("INSERT INTO dorm_member(d_no,s_no,s_name,is_dorm_header) VALUES (#{d_no},#{s_no},#{s_name},#{is_dorm_header})")
+    @Insert("INSERT INTO dorm_member(d_no,s_no,s_name,s_class,t_name,is_dorm_header) VALUES (#{d_no},#{s_no},#{s_name},#{s_class},#{t_name},#{is_dorm_header})")
     void addDM(DormitoryMbr dm);
 
     //修改一个宿舍
-    @Update("UPDATE dorm_member SET s_name=#{s_name}, s_no=#{s_no}, is_dorm_header=#{is_dorm_header} WHERE d_no = #{d_no} ")
+    @Update("UPDATE dorm_member SET s_name=#{s_name}, s_no=#{s_no},s_class=#{s_class},t_name=#{t_name},is_dorm_header=#{is_dorm_header} WHERE d_no = #{d_no} ")
     void updateDM(DormitoryMbr dm);
 
     //删除一个宿舍

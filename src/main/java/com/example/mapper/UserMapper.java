@@ -20,11 +20,11 @@ public interface UserMapper {
     List<User> findAllUser();
 
     //新增用户
-    @Insert("INSERT INTO user_info(u_no,u_name,u_password) VALUES (#{u_no},#{u_name},#{u_password})")
+    @Insert("INSERT INTO user_info(u_no,u_name,u_password,u_type) VALUES (#{u_no},#{u_name},#{u_password},#{u_type})")
     void addUser(User user);
 
     //修改一个用户
-    @Update("UPDATE user_info SET u_password =#{u_password}, u_name=#{u_name} WHERE u_no =#{u_no} ")
+    @Update("UPDATE user_info SET u_password =#{u_password}, u_name=#{u_name},u_type=#{u_type} WHERE u_no =#{u_no} ")
     void updateUser(User user);
 
     //删除一个用户
