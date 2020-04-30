@@ -1,34 +1,35 @@
 package com.example.controller.peopleManager;
 
-import com.example.entity.peopleManager.Dormitory;
+import com.example.entity.peopleManager.DormitoryMbr;
 import com.example.result.Result;
 import com.example.result.ResultFactory;
-import com.example.service.serviceImpl.DormitoryServiceImpl;
+import com.example.service.serviceImpl.DormitoryMbrServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
+
 @RestController
-public class DormitoryController {
+public class DormitoryMbrController {
 
     @Autowired
-    private DormitoryServiceImpl dormitoryService;
+    private DormitoryMbrServiceImpl dormitoryService;
 
     @CrossOrigin
-    @GetMapping("/dormitory")
+    @GetMapping("/dormitorymbr")
     @ResponseBody
-    public List<Dormitory> getAllD(HttpSession httpSession){
+    public List<DormitoryMbr> getAllD(HttpSession httpSession){
 
-        return dormitoryService.findAllD();
+        return dormitoryService.findAllDM();
     }
 
     @CrossOrigin
-    @PostMapping("/dormitory")
+    @PostMapping("/dormitorymbr")
     @ResponseBody
-    public Result addD(@RequestBody Dormitory requestD){
-        boolean flag = dormitoryService.addD(requestD);
+    public Result addD(@RequestBody DormitoryMbr requestD){
+        boolean flag = dormitoryService.addDM(requestD);
         if(flag){
             return ResultFactory.bulidSuccessResult(requestD);
         }else {
@@ -38,10 +39,10 @@ public class DormitoryController {
     }
 
     @CrossOrigin
-    @PutMapping("/dormitory")
+    @PutMapping("/dormitorymbr")
     @ResponseBody
-    public Result updateD(@RequestBody Dormitory requestD){
-        boolean flag = dormitoryService.updateD(requestD);
+    public Result updateD(@RequestBody DormitoryMbr requestD){
+        boolean flag = dormitoryService.updateDM(requestD);
         if(flag){
             return ResultFactory.bulidSuccessResult(requestD);
         }else {
@@ -51,11 +52,11 @@ public class DormitoryController {
 
     //get和delete方式不支持@RequestBody！！！
     @CrossOrigin
-    @DeleteMapping("/dormitory")
+    @DeleteMapping("/dormitorymbr")
     @ResponseBody
-    public Result deleteD(@RequestBody Dormitory d){
+    public Result deleteD(@RequestBody DormitoryMbr d){
         System.out.println(d.getD_no());
-        boolean flag = dormitoryService.deleteD(d.getD_no());
+        boolean flag = dormitoryService.deleteDM(d.getD_no());
 
         if(flag){
             return ResultFactory.bulidSuccessResult("success");
@@ -65,4 +66,3 @@ public class DormitoryController {
     }
 
 }
-

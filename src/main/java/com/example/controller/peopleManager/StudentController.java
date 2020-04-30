@@ -23,6 +23,19 @@ public class StudentController {
 
         return studentService.findAllS();
     }
+    
+    @CrossOrigin
+//    @DeleteMapping("/student")
+//    @PutMapping("/student")
+//    @SelectMapping("/student")
+    @RequestMapping("/student")
+    @ResponseBody
+    public Student selectS(@RequestBody Student s){
+        System.out.println(s.getS_no());
+        return studentService.selectSBySNo(s.getS_no());
+
+    
+    }
 
     @CrossOrigin
     @PostMapping("/student")

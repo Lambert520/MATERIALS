@@ -12,12 +12,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 
-/**
- * @program: materils_v2.0
- * @description: 部门管理页面
- * @author: aYuan
- * @create: 2019-08-18 11:09
- */
 @RestController
 public class DeptController {
 

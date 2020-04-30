@@ -17,3 +17,4 @@ public interface DormitoryService {
     public Dormitory selectDByDNo(String d_no);
 
 }
+

@@ -10,12 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
-/**
- * @program: materils_v2.0
- * @description:
- * @author: aYuan
- * @create: 2019-08-17 12:37
- */
 @RestController
 public class SanitationController {
 

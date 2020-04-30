@@ -4,32 +4,25 @@ public class Dormitory {
 	
 	private String d_no;
 	
-	private String s_no;
-
-    private String s_name;
-
-    private String is_dorm_header;
+	private String dorm_build_no;
 
     private String floor;
 
-	public Dormitory(String d_no, String s_no, String s_name,
-			String is_dorm_header, String floor) {
+	public Dormitory(String d_no, String dorm_build_no, String floor) {
 		super();
 		this.d_no = d_no;
-		this.s_no = s_no;
-		this.s_name = s_name;
-		this.is_dorm_header = is_dorm_header;
+		this.dorm_build_no = dorm_build_no;
 		this.floor = floor;
 	}
-	public Dormitory(){
-		
-	}
-	
+    
+    public Dormitory(){
+    	
+    }
+
 	@Override
 	public String toString() {
-		return "Dormitory [d_no=" + d_no + ", s_no=" + s_no + ", s_name="
-				+ s_name + ", is_dorm_header=" + is_dorm_header + ", floor="
-				+ floor + "]";
+		return "Dormitory [d_no=" + d_no + ", dorm_build_no=" + dorm_build_no
+				+ ", floor=" + floor + "]";
 	}
 
 	public String getD_no() {
@@ -40,28 +33,12 @@ public class Dormitory {
 		this.d_no = d_no;
 	}
 
-	public String getS_no() {
-		return s_no;
+	public String getDorm_build_no() {
+		return dorm_build_no;
 	}
 
-	public void setS_no(String s_no) {
-		this.s_no = s_no;
-	}
-
-	public String getS_name() {
-		return s_name;
-	}
-
-	public void setS_name(String s_name) {
-		this.s_name = s_name;
-	}
-
-	public String getIs_dorm_header() {
-		return is_dorm_header;
-	}
-
-	public void setIs_dorm_header(String is_dorm_header) {
-		this.is_dorm_header = is_dorm_header;
+	public void setDorm_build_no(String dorm_build_no) {
+		this.dorm_build_no = dorm_build_no;
 	}
 
 	public String getFloor() {

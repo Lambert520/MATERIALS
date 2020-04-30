@@ -1,8 +1,8 @@
 package com.example.service.serviceImpl;
 
-import com.example.entity.peopleManager.Dormitory;
-import com.example.mapper.DormitoryMapper;
-import com.example.service.DormitoryService;
+import com.example.entity.peopleManager.NotReturn;
+import com.example.mapper.NotReturnMapper;
+import com.example.service.NotReturnService;
 import com.example.service.redisService.RedisService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +13,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class DormitoryServiceImpl implements DormitoryService {
+public class NotReturnServiceImpl implements NotReturnService {
 
     @Autowired
-    private DormitoryMapper dormitoryMapper;
+    private NotReturnMapper latereturnMapper;
 
     @Autowired
     private RedisTemplate redisTemplate;
@@ -28,16 +28,16 @@ public class DormitoryServiceImpl implements DormitoryService {
     private RedisService redisService;
 
 	@Override
-	public List<Dormitory> findAllD() {
+	public List<NotReturn> findAllLR() {
 		// TODO Auto-generated method stub
-		return dormitoryMapper.findAllD();
+		return latereturnMapper.findAllLR();
 	}
 
 	@Override
-	public boolean addD(Dormitory d) {
+	public boolean addLR(NotReturn lr) {
 		// TODO Auto-generated method stub
 		try {
-          dormitoryMapper.addD(d);
+			latereturnMapper.addLR(lr);
       }catch (Exception e){
           return false;
       }
@@ -45,10 +45,10 @@ public class DormitoryServiceImpl implements DormitoryService {
 	}
 
 	@Override
-	public boolean updateD(Dormitory d) {
+	public boolean updateLR(NotReturn lr) {
 		// TODO Auto-generated method stub
 		try {
-          dormitoryMapper.updateD(d);
+			latereturnMapper.updateLR(lr);
       }catch (Exception e){
           return false;
       }
@@ -56,10 +56,10 @@ public class DormitoryServiceImpl implements DormitoryService {
 	}
 
 	@Override
-	public boolean deleteD(String d_no) {
+	public boolean deleteLR(String s_no) {
 		// TODO Auto-generated method stub
 		try {
-          dormitoryMapper.deleteD(d_no);
+			latereturnMapper.deleteLR(s_no);
       }catch (Exception e){
           return false;
       }
@@ -67,10 +67,18 @@ public class DormitoryServiceImpl implements DormitoryService {
 	}
 
 	@Override
-	public Dormitory selectDByDNo(String d_no) {
+	public NotReturn selectLRBySNo(String s_no) {
 		// TODO Auto-generated method stub
-		return dormitoryMapper.selectDByDNo(d_no);
+		return latereturnMapper.selectLRBySNo(s_no);
 	}
+
+//	@Override
+//	public Student selectSBySN(String s_name) {
+//		// TODO Auto-generated method stub
+//		return studentMapper.selectSBySName(s_name);
+//	}
+
 	
+
 }
 

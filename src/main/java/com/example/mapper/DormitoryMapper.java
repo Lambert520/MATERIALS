@@ -21,23 +21,19 @@ public interface DormitoryMapper {
     List<Dormitory> findAllD();
 
     //新增宿舍
-    @Insert("INSERT INTO dorm(d_no,s_no,s_name,is_dorm_header,floor) VALUES (#{d_no},#{s_no},#{s_name},#{is_dorm_header},#{floor})")
+    @Insert("INSERT INTO dorm(d_no,dorm_build_no,floor) VALUES (#{d_no},#{dorm_build_no},#{floor})")
     void addD(Dormitory d);
 
     //修改一个宿舍
-    @Update("UPDATE dorm SET s_name=#{s_name}, s_no=#{s_no}, is_dorm_header=#{is_dorm_header}, floor =#{floor} WHERE d_no = #{d_no} ")
+    @Update("UPDATE dorm SET d_no=#{d_no}, dorm_build_no=#{dorm_build_no}, floor =#{floor} WHERE d_no = #{d_no} ")
     void updateD(Dormitory d);
 
     //删除一个宿舍
     @Delete("DELETE FROM dorm WHERE d_no = #{d_no}")
-    void deleteD(@Param("d_no") String d_no);
-    
-//    //修改用户姓名
-//    @Update("UPDATE dorm SET s_name = #{s_name} WHERE s_no = #{s_no}")
-//    void updateName(Student s);
+    void deleteD(@Param("d_no") String d_no);    
     
     //通过工号查找用户信息
-    @Select("SELECT * FROM dorm WHERE d_no = #{d_no}")
+    @Select("SELECT * FROM dorm_member WHERE d_no = #{d_no}")
     Dormitory selectDByDNo(String d_no);
 
 //    //通过姓名查询用户信息

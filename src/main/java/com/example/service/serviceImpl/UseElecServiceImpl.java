@@ -1,8 +1,8 @@
 package com.example.service.serviceImpl;
 
-import com.example.entity.peopleManager.LateReturn;
-import com.example.mapper.LateReturnMapper;
-import com.example.service.LateReturnService;
+import com.example.entity.peopleManager.UseElec;
+import com.example.mapper.UseElecMapper;
+import com.example.service.UseElecService;
 import com.example.service.redisService.RedisService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +13,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class LateReturnServiceImpl implements LateReturnService {
+public class UseElecServiceImpl implements UseElecService {
 
     @Autowired
-    private LateReturnMapper latereturnMapper;
+    private UseElecMapper useelecMapper;
 
     @Autowired
     private RedisTemplate redisTemplate;
@@ -28,16 +28,16 @@ public class LateReturnServiceImpl implements LateReturnService {
     private RedisService redisService;
 
 	@Override
-	public List<LateReturn> findAllLR() {
+	public List<UseElec> findAllUE() {
 		// TODO Auto-generated method stub
-		return latereturnMapper.findAllLR();
+		return useelecMapper.findAllUE();
 	}
 
 	@Override
-	public boolean addLR(LateReturn lr) {
+	public boolean addUE(UseElec ue) {
 		// TODO Auto-generated method stub
 		try {
-			latereturnMapper.addLR(lr);
+			useelecMapper.addUE(ue);
       }catch (Exception e){
           return false;
       }
@@ -45,10 +45,10 @@ public class LateReturnServiceImpl implements LateReturnService {
 	}
 
 	@Override
-	public boolean updateLR(LateReturn lr) {
+	public boolean updateUE(UseElec ue) {
 		// TODO Auto-generated method stub
 		try {
-			latereturnMapper.updateLR(lr);
+			useelecMapper.updateUE(ue);
       }catch (Exception e){
           return false;
       }
@@ -56,10 +56,10 @@ public class LateReturnServiceImpl implements LateReturnService {
 	}
 
 	@Override
-	public boolean deleteLR(String s_no) {
+	public boolean deleteUE(String s_no) {
 		// TODO Auto-generated method stub
 		try {
-			latereturnMapper.deleteLR(s_no);
+			useelecMapper.deleteUE(s_no);
       }catch (Exception e){
           return false;
       }
@@ -67,9 +67,9 @@ public class LateReturnServiceImpl implements LateReturnService {
 	}
 
 	@Override
-	public LateReturn selectLRBySNo(String s_no) {
+	public UseElec selectUEBySNo(String s_no) {
 		// TODO Auto-generated method stub
-		return latereturnMapper.selectLRBySNo(s_no);
+		return useelecMapper.selectUEBySNo(s_no);
 	}
 
 //	@Override

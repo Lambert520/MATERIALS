@@ -1,9 +1,9 @@
 package com.example.controller.peopleManager;
 
-import com.example.entity.peopleManager.LateReturn;
+import com.example.entity.peopleManager.NotReturn;
 import com.example.result.Result;
 import com.example.result.ResultFactory;
-import com.example.service.serviceImpl.LateReturnServiceImpl;
+import com.example.service.serviceImpl.NotReturnServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,15 +11,15 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @RestController
-public class LateReturnController {
+public class NotReturnController {
 
     @Autowired
-    private LateReturnServiceImpl latereturnService;
+    private NotReturnServiceImpl latereturnService;
 
     @CrossOrigin
     @GetMapping("/latereturn")
     @ResponseBody
-    public List<LateReturn> getAllLR(HttpSession httpSession){
+    public List<NotReturn> getAllLR(HttpSession httpSession){
 
         return latereturnService.findAllLR();
     }
@@ -27,7 +27,7 @@ public class LateReturnController {
     @CrossOrigin
     @PostMapping("/latereturn")
     @ResponseBody
-    public Result addLR(@RequestBody LateReturn requestLR){
+    public Result addLR(@RequestBody NotReturn requestLR){
         boolean flag = latereturnService.addLR(requestLR);
         if(flag){
             return ResultFactory.bulidSuccessResult(requestLR);
@@ -40,7 +40,7 @@ public class LateReturnController {
     @CrossOrigin
     @PutMapping("/latereturn")
     @ResponseBody
-    public Result updateLR(@RequestBody LateReturn requestLR){
+    public Result updateLR(@RequestBody NotReturn requestLR){
         boolean flag = latereturnService.updateLR(requestLR);
         if(flag){
             return ResultFactory.bulidSuccessResult(requestLR);
@@ -53,7 +53,7 @@ public class LateReturnController {
     @CrossOrigin
     @DeleteMapping("/latereturn")
     @ResponseBody
-    public Result deleteLR(@RequestBody LateReturn s){
+    public Result deleteLR(@RequestBody NotReturn s){
         System.out.println(s.getS_no());
         boolean flag = latereturnService.deleteLR(s.getS_no());
 

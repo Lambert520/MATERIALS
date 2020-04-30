@@ -1,9 +1,9 @@
 package com.example.controller.peopleManager;
 
-import com.example.entity.peopleManager.Dormitory;
+import com.example.entity.peopleManager.UseElec;
 import com.example.result.Result;
 import com.example.result.ResultFactory;
-import com.example.service.serviceImpl.DormitoryServiceImpl;
+import com.example.service.serviceImpl.UseElecServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,26 +11,26 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @RestController
-public class DormitoryController {
+public class UseElecController {
 
     @Autowired
-    private DormitoryServiceImpl dormitoryService;
+    private UseElecServiceImpl latereturnService;
 
     @CrossOrigin
-    @GetMapping("/dormitory")
+    @GetMapping("/dormmbrelec")
     @ResponseBody
-    public List<Dormitory> getAllD(HttpSession httpSession){
+    public List<UseElec> getAllUE(HttpSession httpSession){
 
-        return dormitoryService.findAllD();
+        return latereturnService.findAllUE();
     }
 
     @CrossOrigin
-    @PostMapping("/dormitory")
+    @PostMapping("/dormmbrelec")
     @ResponseBody
-    public Result addD(@RequestBody Dormitory requestD){
-        boolean flag = dormitoryService.addD(requestD);
+    public Result addUE(@RequestBody UseElec requestUE){
+        boolean flag = latereturnService.addUE(requestUE);
         if(flag){
-            return ResultFactory.bulidSuccessResult(requestD);
+            return ResultFactory.bulidSuccessResult(requestUE);
         }else {
             return ResultFactory.bulidFailResult("添加失败");
         }
@@ -38,12 +38,12 @@ public class DormitoryController {
     }
 
     @CrossOrigin
-    @PutMapping("/dormitory")
+    @PutMapping("/dormmbrelec")
     @ResponseBody
-    public Result updateD(@RequestBody Dormitory requestD){
-        boolean flag = dormitoryService.updateD(requestD);
+    public Result updateUE(@RequestBody UseElec requestUE){
+        boolean flag = latereturnService.updateUE(requestUE);
         if(flag){
-            return ResultFactory.bulidSuccessResult(requestD);
+            return ResultFactory.bulidSuccessResult(requestUE);
         }else {
             return ResultFactory.bulidFailResult("添加失败");
         }
@@ -51,11 +51,11 @@ public class DormitoryController {
 
     //get和delete方式不支持@RequestBody！！！
     @CrossOrigin
-    @DeleteMapping("/dormitory")
+    @DeleteMapping("/dormmbrelec")
     @ResponseBody
-    public Result deleteD(@RequestBody Dormitory d){
-        System.out.println(d.getD_no());
-        boolean flag = dormitoryService.deleteD(d.getD_no());
+    public Result deleteUE(@RequestBody UseElec ue){
+        System.out.println(ue.getS_no());
+        boolean flag = latereturnService.deleteUE(ue.getS_no());
 
         if(flag){
             return ResultFactory.bulidSuccessResult("success");

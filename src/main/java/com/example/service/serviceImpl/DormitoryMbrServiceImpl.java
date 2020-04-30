@@ -1,8 +1,8 @@
 package com.example.service.serviceImpl;
 
-import com.example.entity.peopleManager.Dormitory;
-import com.example.mapper.DormitoryMapper;
-import com.example.service.DormitoryService;
+import com.example.entity.peopleManager.DormitoryMbr;
+import com.example.mapper.DormitoryMbrMapper;
+import com.example.service.DormitoryMbrService;
 import com.example.service.redisService.RedisService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +13,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class DormitoryServiceImpl implements DormitoryService {
+public class DormitoryMbrServiceImpl implements DormitoryMbrService {
 
     @Autowired
-    private DormitoryMapper dormitoryMapper;
+    private DormitoryMbrMapper dormitorymMapper;
 
     @Autowired
     private RedisTemplate redisTemplate;
@@ -28,16 +28,16 @@ public class DormitoryServiceImpl implements DormitoryService {
     private RedisService redisService;
 
 	@Override
-	public List<Dormitory> findAllD() {
+	public List<DormitoryMbr> findAllDM() {
 		// TODO Auto-generated method stub
-		return dormitoryMapper.findAllD();
+		return dormitorymMapper.findAllDM();
 	}
 
 	@Override
-	public boolean addD(Dormitory d) {
+	public boolean addDM(DormitoryMbr dm) {
 		// TODO Auto-generated method stub
 		try {
-          dormitoryMapper.addD(d);
+			dormitorymMapper.addDM(dm);
       }catch (Exception e){
           return false;
       }
@@ -45,10 +45,10 @@ public class DormitoryServiceImpl implements DormitoryService {
 	}
 
 	@Override
-	public boolean updateD(Dormitory d) {
+	public boolean updateDM(DormitoryMbr dm) {
 		// TODO Auto-generated method stub
 		try {
-          dormitoryMapper.updateD(d);
+			dormitorymMapper.updateDM(dm);
       }catch (Exception e){
           return false;
       }
@@ -56,10 +56,10 @@ public class DormitoryServiceImpl implements DormitoryService {
 	}
 
 	@Override
-	public boolean deleteD(String d_no) {
+	public boolean deleteDM(String d_no) {
 		// TODO Auto-generated method stub
 		try {
-          dormitoryMapper.deleteD(d_no);
+			dormitorymMapper.deleteDM(d_no);
       }catch (Exception e){
           return false;
       }
@@ -67,10 +67,9 @@ public class DormitoryServiceImpl implements DormitoryService {
 	}
 
 	@Override
-	public Dormitory selectDByDNo(String d_no) {
+	public DormitoryMbr selectDMByDNo(String d_no) {
 		// TODO Auto-generated method stub
-		return dormitoryMapper.selectDByDNo(d_no);
+		return dormitorymMapper.selectDMByDNo(d_no);
 	}
 	
 }
-

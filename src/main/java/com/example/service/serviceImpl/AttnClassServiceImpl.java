@@ -1,8 +1,8 @@
 package com.example.service.serviceImpl;
 
-import com.example.entity.peopleManager.Dormitory;
-import com.example.mapper.DormitoryMapper;
-import com.example.service.DormitoryService;
+import com.example.entity.peopleManager.AttnClass;
+import com.example.mapper.AttnClassMapper;
+import com.example.service.AttnClassService;
 import com.example.service.redisService.RedisService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +13,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class DormitoryServiceImpl implements DormitoryService {
+public class AttnClassServiceImpl implements AttnClassService {
 
     @Autowired
-    private DormitoryMapper dormitoryMapper;
+    private AttnClassMapper attnclassMapper;
 
     @Autowired
     private RedisTemplate redisTemplate;
@@ -28,16 +28,16 @@ public class DormitoryServiceImpl implements DormitoryService {
     private RedisService redisService;
 
 	@Override
-	public List<Dormitory> findAllD() {
+	public List<AttnClass> findAllAC() {
 		// TODO Auto-generated method stub
-		return dormitoryMapper.findAllD();
+		return attnclassMapper.findAllAC();
 	}
 
 	@Override
-	public boolean addD(Dormitory d) {
+	public boolean addAC(AttnClass ac) {
 		// TODO Auto-generated method stub
 		try {
-          dormitoryMapper.addD(d);
+			attnclassMapper.addAC(ac);
       }catch (Exception e){
           return false;
       }
@@ -45,10 +45,10 @@ public class DormitoryServiceImpl implements DormitoryService {
 	}
 
 	@Override
-	public boolean updateD(Dormitory d) {
+	public boolean updateAC(AttnClass ac) {
 		// TODO Auto-generated method stub
 		try {
-          dormitoryMapper.updateD(d);
+			attnclassMapper.updateAC(ac);
       }catch (Exception e){
           return false;
       }
@@ -56,10 +56,10 @@ public class DormitoryServiceImpl implements DormitoryService {
 	}
 
 	@Override
-	public boolean deleteD(String d_no) {
+	public boolean deleteAC(String s_no) {
 		// TODO Auto-generated method stub
 		try {
-          dormitoryMapper.deleteD(d_no);
+			attnclassMapper.deleteAC(s_no);
       }catch (Exception e){
           return false;
       }
@@ -67,10 +67,17 @@ public class DormitoryServiceImpl implements DormitoryService {
 	}
 
 	@Override
-	public Dormitory selectDByDNo(String d_no) {
+	public AttnClass selectACBySNo(String s_no) {
 		// TODO Auto-generated method stub
-		return dormitoryMapper.selectDByDNo(d_no);
+		return attnclassMapper.selectACBySNo(s_no);
 	}
+
+//	@Override
+//	public Student selectSBySN(String s_name) {
+//		// TODO Auto-generated method stub
+//		return studentMapper.selectSBySName(s_name);
+//	}
+
 	
-}
 
+}
