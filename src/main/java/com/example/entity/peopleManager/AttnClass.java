@@ -2,6 +2,8 @@ package com.example.entity.peopleManager;
 
 public class AttnClass {
 
+	private Integer id;
+
 	private String s_no;
 	
 	private String d_no;
@@ -11,6 +13,8 @@ public class AttnClass {
     private String unattn_c_rsn;
 
     private String unattn_c_t;
+
+    private String t_name;
 
 	public AttnClass(String s_no, String d_no, String s_name,
 			String unattn_c_rsn, String unattn_c_t) {
@@ -72,5 +76,21 @@ public class AttnClass {
 	public void setUnattn_c_t(String unattn_c_t) {
 		this.unattn_c_t = unattn_c_t;
 	}
-    
+
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getT_name() {
+		return t_name;
+	}
+
+	public void setT_name(String t_name) {
+		this.t_name = t_name;
+	}
 }

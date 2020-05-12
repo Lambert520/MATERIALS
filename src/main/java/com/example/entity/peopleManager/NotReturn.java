@@ -2,6 +2,7 @@ package com.example.entity.peopleManager;
 
 public class NotReturn {
 
+	private String id;
 	private String s_no;
 	
 	private String d_no;
@@ -11,6 +12,8 @@ public class NotReturn {
     private String not_return_time;
 
     private String not_return_reason;
+
+    private String t_name;
 
 	public NotReturn(String s_no, String d_no, String s_name,
 			String not_return_time, String not_return_reason) {
@@ -72,6 +75,20 @@ public class NotReturn {
 	public void setNot_return_reason(String not_return_reason) {
 		this.not_return_reason = not_return_reason;
 	}
-	
-    
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getT_name() {
+		return t_name;
+	}
+
+	public void setT_name(String t_name) {
+		this.t_name = t_name;
+	}
 }

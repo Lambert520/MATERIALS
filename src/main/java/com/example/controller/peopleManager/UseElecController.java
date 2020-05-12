@@ -19,9 +19,9 @@ public class UseElecController {
     @CrossOrigin
     @GetMapping("/dormmbrelec")
     @ResponseBody
-    public List<UseElec> getAllUE(HttpSession httpSession){
+    public List<UseElec> getAllUE(String ssh,String s_no,String sz,String bzr){
 
-        return latereturnService.findAllUE();
+        return latereturnService.findAllUE(ssh,s_no,sz,bzr);
     }
 
     @CrossOrigin
@@ -55,7 +55,7 @@ public class UseElecController {
     @ResponseBody
     public Result deleteUE(@RequestBody UseElec ue){
         System.out.println(ue.getS_no());
-        boolean flag = latereturnService.deleteUE(ue.getS_no());
+        boolean flag = latereturnService.deleteUE(String.valueOf(ue.getId()));
 
         if(flag){
             return ResultFactory.bulidSuccessResult("success");

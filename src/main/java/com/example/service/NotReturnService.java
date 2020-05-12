@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface NotReturnService {
 
-    public List<NotReturn> findAllLR();
+    public List<NotReturn> findAllLR(String ssh,String s_no,String sz,String bzr);
 
     public boolean addLR(NotReturn lr);
 

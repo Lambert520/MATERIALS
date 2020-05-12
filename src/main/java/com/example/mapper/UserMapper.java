@@ -15,21 +15,33 @@ public interface UserMapper {
     @Select("SELECT * FROM user_info WHERE u_no = #{u_no}")
     User findUserByUNo(@Param("u_no") String u_no);
 
+    @Select("SELECT * FROM user_info WHERE u_no = #{u_no} and u_password = #{password}")
+    User findUserByNoAndPassword(@Param("u_no") String u_no,@Param("password") String password);
+
     //获取所有用户
-    @Select("SELECT * FROM user_info")
-    List<User> findAllUser();
+    @Select({"<script>",
+            "SELECT * FROM user_info where 1=1",
+            "<if test='u_type != null and u_type !=\"\"'>",
+            "and u_type = #{u_type}",
+            "</if>",
+            "<if test='u_no != null and u_no !=\"\"'>",
+            "and (u_no = #{u_no} or u_name = '${u_no}')",
+            "</if>",
+            "</script>"})
+    List<User> findAllUser(@Param("u_type") String u_type,@Param("u_no") String u_no);
 
     //新增用户
     @Insert("INSERT INTO user_info(u_no,u_name,u_password,u_type) VALUES (#{u_no},#{u_name},#{u_password},#{u_type})")
     void addUser(User user);
 
     //修改一个用户
-    @Update("UPDATE user_info SET u_password =#{u_password}, u_name=#{u_name},u_type=#{u_type} WHERE u_no =#{u_no} ")
+    @Update("UPDATE user_info SET u_password =#{u_password}, u_name=#{u_name},u_type=#{u_type} WHERE id =#{id} ")
     void updateUser(User user);
 
     //删除一个用户
-    @Delete("DELETE FROM user_info WHERE u_no = #{u_no}")
-    void deleteUser(@Param("u_no") String u_no);
+    @Delete("DELETE FROM user_info WHERE id = #{id}")
+    void deleteUser(@Param("id") String id);
+
 
 //    @Update("UPDATE user_info SET job = #{job} WHERE jobNum = #{jobNum}")
 //    void updateJob(User user);

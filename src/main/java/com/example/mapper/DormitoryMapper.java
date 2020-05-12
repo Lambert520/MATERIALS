@@ -17,20 +17,28 @@ public interface DormitoryMapper {
 //    Dormitory findDByDNo(@Param("d_no") String d_no);
 
     //获取所有宿舍
-    @Select("SELECT * FROM dorm")
-    List<Dormitory> findAllD();
+    @Select({"<script>",
+            "SELECT * FROM dorm where 1=1",
+            "<if test='ssh != null and ssh !=\"\"'>",
+            "and d_no = #{ssh}",
+            "</if>",
+            "</script>"})
+    List<Dormitory> findAllD(String ssh);
+    //通过工号查找用户信息
+    @Select("SELECT * FROM dorm WHERE d_no = #{d_no}")
+    Dormitory selectDorByDNo(String d_no);
 
     //新增宿舍
     @Insert("INSERT INTO dorm(d_no,dorm_build_no,floor) VALUES (#{d_no},#{dorm_build_no},#{floor})")
     void addD(Dormitory d);
 
     //修改一个宿舍
-    @Update("UPDATE dorm SET d_no=#{d_no}, dorm_build_no=#{dorm_build_no}, floor =#{floor} WHERE d_no = #{d_no} ")
+    @Update("UPDATE dorm SET d_no=#{d_no}, dorm_build_no=#{dorm_build_no}, floor =#{floor} WHERE id = #{id} ")
     void updateD(Dormitory d);
 
     //删除一个宿舍
-    @Delete("DELETE FROM dorm WHERE d_no = #{d_no}")
-    void deleteD(@Param("d_no") String d_no);    
+    @Delete("DELETE FROM dorm WHERE id = #{id}")
+    void deleteD(@Param("id") String id);
     
     //通过工号查找用户信息
     @Select("SELECT * FROM dorm_member WHERE d_no = #{d_no}")

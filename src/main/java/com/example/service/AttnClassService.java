@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface AttnClassService {
 
-    public List<AttnClass> findAllAC();
+    public List<AttnClass> findAllAC(String ssh,String s_no,String sz,String bzr);
 
     public boolean addAC(AttnClass ac);
 

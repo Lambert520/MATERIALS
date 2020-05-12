@@ -8,7 +8,10 @@ public interface UserService {
 
     public User selectUserByUNo(String u_no);
 
-    public List<User> findAllUser();
+    User findUserByNoAndPassword(String u_no,String password);
+
+
+    public List<User> findAllUser(String u_type,String u_no);
 
     public boolean addUser(User user);
 

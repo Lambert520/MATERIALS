@@ -6,7 +6,9 @@ import java.util.List;
 
 public interface DormitoryService {
 
-    public List<Dormitory> findAllD();
+    public List<Dormitory> findAllD(String ssh);
+
+    Dormitory selectDorByDNo(String d_no);
 
     public boolean addD(Dormitory d);
 

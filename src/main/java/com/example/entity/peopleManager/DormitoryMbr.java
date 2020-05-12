@@ -1,7 +1,8 @@
 package com.example.entity.peopleManager;
 
 public class DormitoryMbr {
-	
+
+	private Integer id;
 	private String d_no;
 	
 	private String s_no;
@@ -84,6 +85,11 @@ public class DormitoryMbr {
 		this.is_dorm_header = is_dorm_header;
 	}
 
-	
-    
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 }

@@ -32,11 +32,13 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		return userMapper.findUserByUNo(u_no);
 	}
-
+	public User findUserByNoAndPassword(String u_no,String password){
+		return userMapper.findUserByNoAndPassword(u_no,password);
+	}
 	@Override
-	public List<User> findAllUser() {
+	public List<User> findAllUser(String u_type,String u_no) {
 		// TODO Auto-generated method stub
-		return userMapper.findAllUser();
+		return userMapper.findAllUser(u_type,u_no);
 	}
 
 	@Override
@@ -45,6 +47,7 @@ public class UserServiceImpl implements UserService {
       try {
     	  	userMapper.addUser(user);
       }catch (Exception e){
+      	e.printStackTrace();
       		return false;
       		}
       	return true;

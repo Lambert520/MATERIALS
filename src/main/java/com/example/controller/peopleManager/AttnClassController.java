@@ -19,21 +19,26 @@ public class AttnClassController {
     @CrossOrigin
     @GetMapping("/dormmbrcs")
     @ResponseBody
-    public List<AttnClass> getAllAC(HttpSession httpSession){
+    public List<AttnClass> getAllAC(String ssh,String s_no,String sz,String bzr){
 
-        return attnclassService.findAllAC();
+        return attnclassService.findAllAC(ssh,s_no,sz,bzr);
     }
 
     @CrossOrigin
     @PostMapping("/dormmbrcs")
     @ResponseBody
     public Result addAC(@RequestBody AttnClass requestAC){
-        boolean flag = attnclassService.addAC(requestAC);
-        if(flag){
-            return ResultFactory.bulidSuccessResult(requestAC);
-        }else {
-            return ResultFactory.bulidFailResult("添加失败");
+        try {
+            boolean flag = attnclassService.addAC(requestAC);
+            if(flag){
+                return ResultFactory.bulidSuccessResult(requestAC);
+            }else {
+                return ResultFactory.bulidFailResult("添加失败");
+            }
+        }catch (Exception e){
+            e.printStackTrace();
         }
+        return  null;
 
     }
 
@@ -55,7 +60,7 @@ public class AttnClassController {
     @ResponseBody
     public Result deleteAC(@RequestBody AttnClass ac){
         System.out.println(ac.getS_no());
-        boolean flag = attnclassService.deleteAC(ac.getS_no());
+        boolean flag = attnclassService.deleteAC(String.valueOf(ac.getId()));
 
         if(flag){
             return ResultFactory.bulidSuccessResult("success");

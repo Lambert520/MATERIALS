@@ -5,7 +5,9 @@ import org.springframework.context.annotation.Bean;
 import java.util.UUID;
 
 public class User {
-	
+
+	private Integer id;
+
 	private Integer u_id;
 	  
 	private String u_no;
@@ -15,6 +17,8 @@ public class User {
 	private String u_name;
 	
 	private String u_type;
+	//宿舍号
+	private String d_no;
 
 	public User(Integer u_id, String u_no, String u_password, String u_name,
 			String u_type) {
@@ -76,5 +80,20 @@ public class User {
 	public void setU_type(String u_type) {
 		this.u_type = u_type;
 	}
-	
+
+	public String getD_no() {
+		return d_no;
+	}
+
+	public void setD_no(String d_no) {
+		this.d_no = d_no;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 }

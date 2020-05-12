@@ -2,6 +2,8 @@ package com.example.entity.peopleManager;
 
 public class UseElec {
 
+	private Integer id;
+
 	private String s_no;
 	
 	private String d_no;
@@ -11,6 +13,8 @@ public class UseElec {
     private String illegal_elec_rsn;
 
     private String illegal_elec_t;
+
+    private String t_name;
 
 	public UseElec(String s_no, String d_no, String s_name,
 			String illegal_elec_rsn, String illegal_elec_t) {
@@ -72,5 +76,20 @@ public class UseElec {
 	public void setIllegal_elec_t(String illegal_elec_t) {
 		this.illegal_elec_t = illegal_elec_t;
 	}
-    
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getT_name() {
+		return t_name;
+	}
+
+	public void setT_name(String t_name) {
+		this.t_name = t_name;
+	}
 }

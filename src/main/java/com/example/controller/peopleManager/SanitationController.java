@@ -19,9 +19,9 @@ public class SanitationController {
     @CrossOrigin
     @GetMapping("/sanitation")
     @ResponseBody
-    public List<Sanitation> getAllSA(HttpSession httpSession){
+    public List<Sanitation> getAllSA(String ssh){
 
-        return sanitationService.findAllSA();
+        return sanitationService.findAllSA(ssh);
     }
 
     @CrossOrigin
@@ -55,7 +55,7 @@ public class SanitationController {
     @ResponseBody
     public Result deleteSA(@RequestBody Sanitation s){
         System.out.println(s.getD_no());
-        boolean flag = sanitationService.deleteSA(s.getD_no());
+        boolean flag = sanitationService.deleteSA(String.valueOf(s.getSanitary_condition_id()));
 
         if(flag){
             return ResultFactory.bulidSuccessResult("success");

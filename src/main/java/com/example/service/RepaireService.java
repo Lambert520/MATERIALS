@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface RepaireService {
 
-    public List<Repaire> findAllR();
+    public List<Repaire> findAllR(String ssh);
 
     public boolean addR(Repaire r);
 

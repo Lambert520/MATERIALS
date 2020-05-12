@@ -19,9 +19,9 @@ public class RepaireController {
     @CrossOrigin
     @GetMapping("/repaire")
     @ResponseBody
-    public List<Repaire> getAllR(HttpSession httpSession){
+    public List<Repaire> getAllR(String ssh){
 
-        return repaireService.findAllR();
+        return repaireService.findAllR(ssh);
     }
 
     @CrossOrigin
@@ -55,7 +55,7 @@ public class RepaireController {
     @ResponseBody
     public Result deleteS(@RequestBody Repaire r){
         System.out.println(r.getD_no());
-        boolean flag = repaireService.deleteR(r.getD_no());
+        boolean flag = repaireService.deleteR(String.valueOf(r.getRepaired_id()));
 
         if(flag){
             return ResultFactory.bulidSuccessResult("success");

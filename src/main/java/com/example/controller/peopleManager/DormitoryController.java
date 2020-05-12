@@ -19,15 +19,20 @@ public class DormitoryController {
     @CrossOrigin
     @GetMapping("/dormitory")
     @ResponseBody
-    public List<Dormitory> getAllD(HttpSession httpSession){
+    public List<Dormitory> getAllD(String ssh){
 
-        return dormitoryService.findAllD();
+        return dormitoryService.findAllD(ssh);
     }
 
     @CrossOrigin
     @PostMapping("/dormitory")
     @ResponseBody
     public Result addD(@RequestBody Dormitory requestD){
+
+        Dormitory dormitory = dormitoryService.selectDorByDNo(requestD.getD_no());
+        if(dormitory != null){
+            return ResultFactory.bulidFailResult("当前宿舍号已经存在");
+        }
         boolean flag = dormitoryService.addD(requestD);
         if(flag){
             return ResultFactory.bulidSuccessResult(requestD);
@@ -55,7 +60,7 @@ public class DormitoryController {
     @ResponseBody
     public Result deleteD(@RequestBody Dormitory d){
         System.out.println(d.getD_no());
-        boolean flag = dormitoryService.deleteD(d.getD_no());
+        boolean flag = dormitoryService.deleteD(d.getId());
 
         if(flag){
             return ResultFactory.bulidSuccessResult("success");

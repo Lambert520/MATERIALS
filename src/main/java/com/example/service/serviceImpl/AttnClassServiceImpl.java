@@ -28,9 +28,9 @@ public class AttnClassServiceImpl implements AttnClassService {
     private RedisService redisService;
 
 	@Override
-	public List<AttnClass> findAllAC() {
+	public List<AttnClass> findAllAC(String ssh,String s_no,String sz,String bzr) {
 		// TODO Auto-generated method stub
-		return attnclassMapper.findAllAC();
+		return attnclassMapper.findAllAC(ssh,s_no,sz,bzr);
 	}
 
 	@Override
@@ -39,6 +39,7 @@ public class AttnClassServiceImpl implements AttnClassService {
 		try {
 			attnclassMapper.addAC(ac);
       }catch (Exception e){
+			e.printStackTrace();
           return false;
       }
       return true;

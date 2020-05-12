@@ -29,9 +29,9 @@ public class SanitationServiceImpl implements SanitationService {
     private RedisService redisService;
 
 	@Override
-	public List<Sanitation> findAllSA() {
+	public List<Sanitation> findAllSA(String ssh) {
 		// TODO Auto-generated method stub
-		return sanitationMapper.findAllSA();
+		return sanitationMapper.findAllSA(ssh);
 	}
 
 	@Override

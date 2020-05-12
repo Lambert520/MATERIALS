@@ -28,9 +28,9 @@ public class NotReturnServiceImpl implements NotReturnService {
     private RedisService redisService;
 
 	@Override
-	public List<NotReturn> findAllLR() {
+	public List<NotReturn> findAllLR(String ssh,String s_no,String sz,String bzr) {
 		// TODO Auto-generated method stub
-		return latereturnMapper.findAllLR();
+		return latereturnMapper.findAllLR(ssh,s_no,sz,bzr);
 	}
 
 	@Override
@@ -61,6 +61,7 @@ public class NotReturnServiceImpl implements NotReturnService {
 		try {
 			latereturnMapper.deleteLR(s_no);
       }catch (Exception e){
+			e.printStackTrace();
           return false;
       }
       return true;

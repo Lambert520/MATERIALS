@@ -28,9 +28,9 @@ public class DormitoryServiceImpl implements DormitoryService {
     private RedisService redisService;
 
 	@Override
-	public List<Dormitory> findAllD() {
+	public List<Dormitory> findAllD(String ssh) {
 		// TODO Auto-generated method stub
-		return dormitoryMapper.findAllD();
+		return dormitoryMapper.findAllD(ssh);
 	}
 
 	@Override
@@ -43,6 +43,11 @@ public class DormitoryServiceImpl implements DormitoryService {
       }
       return true;
 	}
+
+	@Override
+    public Dormitory selectDorByDNo(String d_no){
+        return dormitoryMapper.selectDorByDNo(d_no);
+    }
 
 	@Override
 	public boolean updateD(Dormitory d) {

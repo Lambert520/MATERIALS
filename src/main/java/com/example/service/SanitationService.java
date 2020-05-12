@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface SanitationService {
 
-    public List<Sanitation> findAllSA();
+    public List<Sanitation> findAllSA(String ssh);
 
     public boolean addSA(Sanitation s);
 

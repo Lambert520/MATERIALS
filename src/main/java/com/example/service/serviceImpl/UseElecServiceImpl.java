@@ -28,9 +28,9 @@ public class UseElecServiceImpl implements UseElecService {
     private RedisService redisService;
 
 	@Override
-	public List<UseElec> findAllUE() {
+	public List<UseElec> findAllUE(String ssh,String s_no,String sz,String bzr) {
 		// TODO Auto-generated method stub
-		return useelecMapper.findAllUE();
+		return useelecMapper.findAllUE(ssh,s_no,sz,bzr);
 	}
 
 	@Override

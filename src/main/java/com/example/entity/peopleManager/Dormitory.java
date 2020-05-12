@@ -1,7 +1,8 @@
 package com.example.entity.peopleManager;
 
 public class Dormitory {
-	
+
+	private String id;
 	private String d_no;
 	
 	private String dorm_build_no;
@@ -48,5 +49,12 @@ public class Dormitory {
 	public void setFloor(String floor) {
 		this.floor = floor;
 	}
-    
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
 }

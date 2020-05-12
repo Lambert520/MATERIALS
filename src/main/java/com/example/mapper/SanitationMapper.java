@@ -13,20 +13,25 @@ import java.util.List;
 public interface SanitationMapper {
 
     //获取所有卫生情况
-    @Select("SELECT * FROM sanitary_condition")
-    List<Sanitation> findAllSA();
+    @Select({"<script>",
+            "SELECT * FROM sanitary_condition where 1=1",
+            "<if test='ssh != null and ssh !=\"\"'>",
+            "and d_no = #{ssh}",
+            "</if>",
+            "</script>"})
+    List<Sanitation> findAllSA(String ssh);
 
     //新增卫生情况
     @Insert("INSERT INTO sanitary_condition(d_no,tast_time,tast_result) VALUES (#{d_no},#{tast_time},#{tast_result})")
     void addSA(Sanitation s);
 
     //修改卫生情况
-    @Update("UPDATE sanitary_condition SET tast_time=#{tast_time}, tast_result=#{tast_result} WHERE d_no = #{d_no} ")
+    @Update("UPDATE sanitary_condition SET tast_time=#{tast_time}, tast_result=#{tast_result} WHERE sanitary_condition_id = #{sanitary_condition_id} ")
     void updateSA(Sanitation s);
 
     //删除卫生情况
-    @Delete("DELETE FROM sanitary_condition WHERE d_no = #{d_no}")
-    void deleteSA(@Param("d_no") String d_no);
+    @Delete("DELETE FROM sanitary_condition WHERE sanitary_condition_id = #{sanitary_condition_id}")
+    void deleteSA(@Param("sanitary_condition_id") String sanitary_condition_id);
     
     //通过宿舍号查找卫生信息
     @Select("SELECT * FROM sanitary_condition WHERE d_no = #{d_no}")

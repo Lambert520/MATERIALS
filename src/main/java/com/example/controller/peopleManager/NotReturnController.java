@@ -19,9 +19,9 @@ public class NotReturnController {
     @CrossOrigin
     @GetMapping("/latereturn")
     @ResponseBody
-    public List<NotReturn> getAllLR(HttpSession httpSession){
+    public List<NotReturn> getAllLR(String ssh,String s_no,String sz,String bzr){
 
-        return latereturnService.findAllLR();
+        return latereturnService.findAllLR(ssh,s_no,sz,bzr);
     }
 
     @CrossOrigin
@@ -55,7 +55,7 @@ public class NotReturnController {
     @ResponseBody
     public Result deleteLR(@RequestBody NotReturn s){
         System.out.println(s.getS_no());
-        boolean flag = latereturnService.deleteLR(s.getS_no());
+        boolean flag = latereturnService.deleteLR(String.valueOf(s.getId()));
 
         if(flag){
             return ResultFactory.bulidSuccessResult("success");

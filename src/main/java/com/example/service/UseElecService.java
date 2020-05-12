@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface UseElecService {
 
-    public List<UseElec> findAllUE();
+    public List<UseElec> findAllUE(String ssh,String s_no,String sz,String bzr);
 
     public boolean addUE(UseElec ue);
 

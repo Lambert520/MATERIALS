@@ -28,9 +28,9 @@ public class RepaireServiceImpl implements RepaireService {
     private RedisService redisService;
 
 	@Override
-	public List<Repaire> findAllR() {
+	public List<Repaire> findAllR(String ssh) {
 		// TODO Auto-generated method stub
-		return repaireMapper.findAllR();
+		return repaireMapper.findAllR(ssh);
 	}
 
 	@Override
