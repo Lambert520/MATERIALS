@@ -28,9 +28,7 @@ public class LoginController {
     @ResponseBody
     public Result login(@RequestBody User requestUser){
     	String uno = requestUser.getU_no();
-//        String jobNum = requestUser.getJobNum();
     	uno = HtmlUtils.htmlEscape(uno);//将数据转义
-//        User user = userService.selectUserByJobNum(jobNum);
         User user = userService.findUserByNoAndPassword(uno,requestUser.getU_password());
         if(null == user){
             String message = "工号&密码错误！";

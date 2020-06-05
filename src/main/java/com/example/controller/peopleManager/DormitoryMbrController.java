@@ -20,7 +20,7 @@ public class DormitoryMbrController {
     /**
      * @param u_type 角色
      * @param b_name 姓名
-     * @param s_no   学好或者宿舍号
+     * @param s_no   学号或者宿舍号
      * @return
      */
     @CrossOrigin
@@ -30,7 +30,7 @@ public class DormitoryMbrController {
                                       @RequestParam(required = false) String ssh,
                                       @RequestParam(required = false) String b_name,
                                       @RequestParam(required = false) String s_no) {
-
+//不同用户登录系统，可以看到不同的宿舍成员
         if (u_type.equals("班主任")) {
             return dormitoryService.findAllDM(null, b_name, s_no);
         } else if (u_type.equals("舍长")) {

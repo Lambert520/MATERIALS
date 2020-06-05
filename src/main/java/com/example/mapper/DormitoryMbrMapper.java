@@ -16,7 +16,7 @@ public interface DormitoryMbrMapper {
 //    @Select("SELECT * FROM dorm WHERE d_no = #{d_no}")
 //    Dormitory findDByDNo(@Param("d_no") String d_no);
 
-    //获取所有宿舍
+    //获取所有宿舍成员
     @Select({"<script>",
             "SELECT * FROM dorm_member where 1=1",
             "<if test='ssh != null and ssh !=\"\"'>",

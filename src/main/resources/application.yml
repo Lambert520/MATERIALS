@@ -1,7 +1,7 @@
 server:
-  port: 8080
+  port: 8082
   servlet:
-    context-path: /materils_v2.0/
+    context-path: /sdms/
 mybatis:
   type-aliases-package: com.example.entity
   mapper-locations: classpath:mapper/*.xml

@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>materils</artifactId>
+    <artifactId>sdms</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
     <name>materils</name>
@@ -102,7 +102,7 @@
 
     <build>
         <!-- 应与application.properties(或application.yml)中context-path保持一致 -->
-        <finalName>materils_v2.0</finalName>
+        <finalName>sdms</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
